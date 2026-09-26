@@ -1,0 +1,9 @@
+# Cloudflare Pages config. Git-connected deploys read this file, so bindings
+# live here rather than in the dashboard. `name` must match the Pages project.
+name = "frostfingames"
+pages_build_output_dir = "./public"
+compatibility_date = "2026-09-26"
+
+[[kv_namespaces]]
+binding = "SIGNUPS"
+id = "664bc144ad894f328c3627aa58aff07f" # frostfin-signups
