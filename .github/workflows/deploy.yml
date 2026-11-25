@@ -1,0 +1,35 @@
+# Deploys the site to Cloudflare Pages (project: frostfingames).
+# Pushes to main go to production; other branches get preview URLs.
+# Needs the repo secret CLOUDFLARE_API_TOKEN (Account > Cloudflare Pages > Edit).
+name: Deploy
+
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - name: Skip until the Cloudflare token secret exists
+        if: env.HAS_TOKEN != 'true'
+        run: echo "::notice::CLOUDFLARE_API_TOKEN secret not set; skipping deploy."
+
+      - uses: actions/checkout@v4
+        if: env.HAS_TOKEN == 'true'
+
+      - name: Deploy to Cloudflare Pages
+        if: env.HAS_TOKEN == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 1a19c4cad08d74f1189e2303f14cf5b3
+          command: pages deploy --branch=${{ github.ref_name }} --commit-hash=${{ github.sha }}

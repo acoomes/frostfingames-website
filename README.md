@@ -26,18 +26,22 @@ npx wrangler pages dev          # full site: signup API, redirects, headers (rea
 python3 -m http.server -d public 8080   # static pages only
 ```
 
-## Deploy on Cloudflare Pages
+## Hosting and deploys
 
-Already done: the `frostfin-signups` KV namespace exists and `wrangler.toml` binds it
-as `SIGNUPS`, so there is no binding to configure in the dashboard.
+Everything below is already set up in Cloudflare:
 
-1. Workers & Pages > Create > Pages > Connect to Git > `acoomes/frostfingames-website`.
-2. Project name: **`frostfingames`** (must match `name` in `wrangler.toml`).
-   Production branch: `main`. Framework preset: **None**. Build command: *(empty)*.
-   Output directory: `public`.
-3. Custom domains > add `frostfingames.com` and `www.frostfingames.com`.
+- **Pages project** `frostfingames` (direct upload), served at `frostfingames.pages.dev`,
+  `frostfingames.com` and `www.frostfingames.com` (proxied CNAMEs in the zone).
+- **KV namespace** `frostfin-signups`, bound as `SIGNUPS` through `wrangler.toml`.
+- **Email Routing**: `hello@frostfingames.com` forwards to the owner's inbox.
+- Zone settings: Always Use HTTPS on, minimum TLS 1.2.
 
-Every push to `main` redeploys. Other branches get preview URLs.
+Deploys run from `.github/workflows/deploy.yml` on every push: `main` goes to
+production, other branches get preview URLs. It needs one repo secret,
+`CLOUDFLARE_API_TOKEN`, holding a token with **Account > Cloudflare Pages > Edit**.
+Without the secret the workflow skips instead of failing.
+
+Manual deploy from a machine with wrangler logged in: `npx wrangler pages deploy --branch main`.
 
 ## Reading the signup list
 
