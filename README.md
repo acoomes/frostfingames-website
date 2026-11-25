@@ -10,7 +10,7 @@ no dependencies. `wrangler.toml` holds the Pages config, including the KV bindin
 |---|---|---|
 | Flagship | **Cookiss** (cozy cookie clicker, Unity) | `acoomes/clickie-cooker` |
 | On the workbench | **Shelf Control**, **Ember & Bone**, **Sigil Strike**, **ECHO** | `shelf-control`, `hearth-harrow`, `sigil-strike`, `echo-game` |
-| Arcade (play now) | **Perfect Pulse** (hosted here), **Paper 86** (Vercel) | `perfect-pulse`, `paper-86` |
+| Arcade (play now) | **Perfect Pulse** (hosted here), **Paper 86** (paper86.app) | `perfect-pulse`, `paper-86` |
 | Lab mentions | Roll Them Bones!, Tiny Tide | `roll-them-bones`, `tiny-tide` |
 
 `public/play/perfect-pulse/` is a vendored copy of `acoomes/perfect-pulse` at `c93ccef`
