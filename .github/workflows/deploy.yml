@@ -27,9 +27,22 @@ jobs:
         if: env.HAS_TOKEN == 'true'
 
       - name: Deploy to Cloudflare Pages
+        id: deploy
         if: env.HAS_TOKEN == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 1a19c4cad08d74f1189e2303f14cf5b3
           command: pages deploy --branch=${{ github.ref_name }} --commit-hash=${{ github.sha }}
+
+      - name: Smoke test the deployment
+        if: env.HAS_TOKEN == 'true'
+        env:
+          URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          set -eu
+          sleep 5
+          curl -fsS "$URL/" | grep -q "Frostfin Games"
+          curl -fsS -o /dev/null "$URL/play/perfect-pulse/"
+          test "$(curl -s -o /dev/null -w '%{http_code}' "$URL/api/subscribe")" = 405
+          echo "::notice::Deployed and verified: $URL"
