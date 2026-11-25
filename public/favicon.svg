@@ -1,10 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <defs>
-    <linearGradient id="a" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#bff1ff"/><stop offset="1" stop-color="#6fdcff"/></linearGradient>
-    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2fb4e8"/><stop offset="1" stop-color="#1673b8"/></linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="8" fill="#071524"/>
-  <path d="M5 25C8.8 17.4 13.6 8.8 25 5L15.5 25Z" fill="url(#a)"/>
-  <path d="M25 5C22.2 11.6 21.7 18.3 27 25H15.5Z" fill="url(#b)"/>
-  <path d="M4 27.8c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0 4 1.4 6 0" fill="none" stroke="#6fdcff" stroke-width="1.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="34 -22 338 338" width="338" height="338">
+<title>Frostfin Games</title>
+<defs>
+<mask id="c" maskUnits="userSpaceOnUse" x="34" y="-22" width="338" height="338">
+<rect x="34" y="-22" width="338" height="338" fill="#fff"/>
+<g fill="#000" stroke="#000" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="10">
+<polygon points="146,186 78,152 104,202 76,252 146,218"/>
+<polygon points="276,140 264,98 236,58 184,22 204,64 202,106 184,146"/>
+</g>
+<path d="M132 176 C158 132 232 110 286 128 C324 141 344 180 340 212 C335 252 292 282 240 282 C192 282 152 256 132 226 C124 212 124 190 132 176 Z" fill="#000"/>
+</mask>
+<mask id="g" maskUnits="userSpaceOnUse" x="262" y="150" width="60" height="60">
+<rect x="262" y="150" width="60" height="60" fill="#fff"/>
+<circle cx="299.5" cy="172.5" r="7" fill="#000"/>
+<circle cx="285" cy="188.5" r="3.2" fill="#000"/>
+</mask>
+</defs>
+<rect x="38" y="-18" width="330" height="330" rx="20" fill="#071524"/>
+<rect x="38" y="-18" width="330" height="330" rx="20" fill="#8fe3ff" mask="url(#c)"/>
+<g fill="none" stroke="#8fe3ff" stroke-linecap="round" stroke-linejoin="round">
+<path d="M192 33 L230 90 M234.5 66 L230 90 M209 69 L230 90 L230 120" stroke-width="4.5"/>
+<path d="M107 202 L128 202" stroke-width="4.5"/>
+<path d="M132 176 C158 132 232 110 286 128 C324 141 344 180 340 212 C335 252 292 282 240 282 C192 282 152 256 132 226 C124 212 124 190 132 176 Z" stroke-width="7"/>
+<path d="M250 156 C236 180 236 214 250 238" stroke-width="5"/>
+<polygon points="240,200 202,240 246,226" stroke-width="4.5" stroke-linejoin="miter" stroke-miterlimit="10"/>
+<path d="M268 146 L310 153" stroke-width="7"/>
+<path d="M311 219 C317 225 325 223 331 215" stroke-width="5.5"/>
+</g>
+<polygon points="202,240 243,213 246,226" fill="#8fe3ff"/>
+<circle cx="292" cy="180" r="20" fill="#8fe3ff" mask="url(#g)"/>
 </svg>

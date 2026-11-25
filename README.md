@@ -63,6 +63,7 @@ When the list outgrows KV, export it into a real newsletter tool (Buttondown, Ki
 
 - `public/index.html` – the page
 - `public/assets/site.css`, `public/assets/site.js` – styles and form enhancement
+- `public/assets/brand/frostfin-seal.svg` – the Frostfin fish mark in the site's ice blue (same artwork as the red seal on Paper 86's share card); `public/favicon.svg` is the same mark on a navy tile
 - `public/assets/fonts/` – self-hosted Bricolage Grotesque + Figtree (OFL, licenses included)
 - `public/_headers` – security headers (strict CSP: everything is same-origin) and caching
 - `public/_redirects` – short links: `/paper86`, `/cookiss`, `/games`, `/press`, `/perfect-pulse`
