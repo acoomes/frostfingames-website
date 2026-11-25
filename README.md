@@ -8,14 +8,18 @@ no dependencies. `wrangler.toml` holds the Pages config, including the KV bindin
 
 | Section | Games | Source repo |
 |---|---|---|
-| Flagship | **Cookiss** (cozy cookie clicker, Unity) | `acoomes/clickie-cooker` |
-| On the workbench | **Shelf Control**, **Ember & Bone**, **Sigil Strike**, **ECHO** | `shelf-control`, `hearth-harrow`, `sigil-strike`, `echo-game` |
-| Arcade (play now) | **Perfect Pulse** (hosted here), **Paper 86** (paper86.app) | `perfect-pulse`, `paper-86` |
-| Lab mentions | Roll Them Bones!, Tiny Tide | `roll-them-bones`, `tiny-tide` |
+| Flagship | **Paper 86** (drift score attack, live at paper86.app), with its trailer | `acoomes/paper-86` |
+| Next in flight | **Cookiss** (cozy cookie clicker, Unity) | `acoomes/clickie-cooker` |
+| On the workbench | **Shelf Control**, **Ember & Bone**, **ECHO** | `shelf-control`, `hearth-harrow`, `echo-game` |
+| Lab footnote | Roll Them Bones!, Tiny Tide, and Perfect Pulse from the archive | `roll-them-bones`, `tiny-tide`, `perfect-pulse` |
 
 `public/play/perfect-pulse/` is a vendored copy of `acoomes/perfect-pulse` at `c93ccef`
-(only `index.html` was changed, to add metadata and a back link). The game repo is
-the source of truth; copy `game.js`/`style.css` over again when it ships a release.
+(only `index.html` was changed, to add metadata and a back link). It stays hosted so the
+archive link works; it is not being developed.
+
+`public/assets/video/paper86-trailer.mp4` is a copy of `marketing/paper86-trailer.mp4` from
+the Paper 86 repo, and `paper86-hero.webp` / `paper86-poster.webp` are frames from it.
+Copy it over again when the trailer is re-rendered.
 
 Images in `public/assets/img/` are WebP exports of each game's own art or gameplay captures.
 
@@ -61,7 +65,7 @@ When the list outgrows KV, export it into a real newsletter tool (Buttondown, Ki
 - `public/assets/site.css`, `public/assets/site.js` – styles and form enhancement
 - `public/assets/fonts/` – self-hosted Bricolage Grotesque + Figtree (OFL, licenses included)
 - `public/_headers` – security headers (strict CSP: everything is same-origin) and caching
-- `public/_redirects` – short links: `/cookiss`, `/games`, `/arcade`, `/press`, `/perfect-pulse`
+- `public/_redirects` – short links: `/paper86`, `/cookiss`, `/games`, `/press`, `/perfect-pulse`
 - `public/404.html` – "Lost at sea"
 - `functions/api/subscribe.js` – `POST /api/subscribe`
 - `wrangler.toml` – Pages project name, output dir, KV binding
