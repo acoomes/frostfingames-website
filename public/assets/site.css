@@ -327,6 +327,14 @@ b { font-weight: 700; }
 .form-msg.ok { color: var(--mint); }
 .form-msg.err { color: var(--coral); }
 
+.signup-paper input[type=email] { background: var(--sheet); border-color: var(--ink); border-radius: 6px; color: var(--ink); font-family: var(--mono); }
+.signup-paper input[type=email]::placeholder { color: #8a7d6a; }
+.signup-paper input[type=email]:focus { border-color: var(--ink-red); }
+.signup-paper button { background: var(--ink); color: var(--sheet); border-radius: 6px; box-shadow: none; font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; font-size: .9rem; }
+.signup-paper .form-msg.ok { color: #1f5c47; }
+.signup-paper .form-msg.err { color: var(--ink-red); }
+.paper-note { margin: 36px 0 12px; font: italic 400 1.05rem/1.4 var(--serif); }
+
 .signup-cookie input[type=email] { background: var(--milk); border-color: #e4cfae; color: var(--cocoa); }
 .signup-cookie input[type=email]::placeholder { color: #b19a82; }
 .signup-cookie input[type=email]:focus { border-color: var(--berry); }
@@ -415,6 +423,8 @@ b { font-weight: 700; }
 .signup-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .signup-grid h2 { margin-bottom: 18px; }
 .signup-grid > div > p:not(.eyebrow):not(.form-msg) { color: var(--muted); font-size: 1.12rem; margin-bottom: 26px; }
+.signup-grid > div > p a { color: var(--frost); font-weight: 600; }
+.signup-grid > div > p a:hover { color: var(--text); }
 .contact-card { padding: 32px; border-radius: var(--radius); background: var(--deep); box-shadow: 0 0 0 1px var(--line); }
 .contact-card h3 { font-size: 1.35rem; margin-bottom: 10px; }
 .contact-card p { color: var(--muted); margin-bottom: 18px; }
@@ -425,12 +435,25 @@ b { font-weight: 700; }
 .contact-social a:hover { color: var(--text); }
 @media (max-width: 820px) { .signup-grid { grid-template-columns: 1fr; } }
 
+/* ---------- Legal pages ---------- */
+.legal { padding: clamp(48px, 7vw, 88px) 0 var(--section-y); background: linear-gradient(180deg, var(--night), var(--abyss)); }
+.legal-wrap { max-width: 760px; }
+.legal h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; margin-bottom: 22px; }
+.legal h2 { font-size: 1.45rem; margin: 44px 0 12px; }
+.legal p, .legal li { color: var(--muted); }
+.legal .legal-lede { color: var(--text); font-size: 1.2rem; }
+.legal .legal-meta { font-size: .92rem; color: #7f9bb1; }
+.legal ul { margin: 0 0 1em; padding-left: 1.2em; }
+.legal li { margin-bottom: 6px; }
+.legal a { color: var(--frost); font-weight: 600; }
+.legal a:hover { color: var(--text); }
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--abyss); border-top: 1px solid var(--line); padding: 40px 0; }
 .footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .site-footer nav a { color: var(--muted); text-decoration: none; font-weight: 600; }
-.site-footer nav a:hover { color: var(--text); }
+.site-footer nav a:hover, .site-footer nav a[aria-current] { color: var(--text); }
 .fine { flex-basis: 100%; margin: 0; color: #6f8aa0; font-size: .9rem; }
 
 @media (prefers-reduced-motion: reduce) {

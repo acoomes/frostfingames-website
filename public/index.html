@@ -23,7 +23,7 @@
 
   <link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=3">
+  <link rel="stylesheet" href="/assets/site.css?v=4">
 
   <script type="application/ld+json">
   {
@@ -105,6 +105,15 @@
           <div class="cta-row">
             <a class="btn btn-ink" href="https://paper86.app/">Play at paper86.app</a>
           </div>
+          <p class="paper-note">Rather hear about it later? One email when Paper 86 lands somewhere new.</p>
+          <form class="signup signup-paper" action="/api/subscribe" method="post" data-signup>
+            <input type="hidden" name="source" value="paper86">
+            <label class="hp" aria-hidden="true">Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+            <label for="email-paper86" class="sr">Email address</label>
+            <input id="email-paper86" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+            <button type="submit">Keep me posted</button>
+            <p class="form-msg" role="status" aria-live="polite"></p>
+          </form>
         </div>
         <div class="paper-art">
           <figure class="sheet" data-trailer>
@@ -247,7 +256,7 @@
         <div>
           <p class="eyebrow">Stay in the loop</p>
           <h2 id="signup-title">Launches, playtests, the occasional hamster update.</h2>
-          <p>One email when there&rsquo;s something worth playing. No spam, and you can leave whenever you like.</p>
+          <p>One email when there&rsquo;s something worth playing. No spam, and you can leave whenever you like. Here&rsquo;s <a href="/privacy">what we keep</a>.</p>
           <form class="signup" action="/api/subscribe" method="post" data-signup>
             <input type="hidden" name="source" value="studio">
             <label class="hp" aria-hidden="true">Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
@@ -279,11 +288,12 @@
         <a href="#games">Games</a>
         <a href="https://www.youtube.com/@FrostfinGames" rel="me noopener">YouTube</a>
         <a href="mailto:hello@frostfingames.com">Contact</a>
+        <a href="/privacy">Privacy</a>
       </nav>
       <p class="fine">&copy; <span data-year>2026</span> Frostfin Games. Made in Portland, Oregon.</p>
     </div>
   </footer>
 
-  <script src="/assets/site.js?v=3" defer></script>
+  <script src="/assets/site.js?v=4" defer></script>
 </body>
 </html>
