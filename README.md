@@ -50,7 +50,7 @@ Manual deploy from a machine with wrangler logged in: `npx wrangler pages deploy
 ## Reading the signup list
 
 Each signup is one KV key (the lowercased email) whose value records which form(s)
-it came from (`cookiss` or `studio`), first/last signup time, and country.
+it came from (`paper86`, `cookiss` or `studio`), first/last signup time, and country.
 
 ```sh
 npx wrangler kv key list --binding SIGNUPS --remote              # all emails + sources
