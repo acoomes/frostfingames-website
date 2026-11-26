@@ -32,6 +32,47 @@
     });
   });
 
+  // Trailer: a big play button over the poster. On phones, playing goes
+  // fullscreen so it's watchable: the vertical cut when the phone is upright,
+  // otherwise the widescreen cut in landscape.
+  document.querySelectorAll('[data-trailer]').forEach(function (fig) {
+    var video = fig.querySelector('video');
+    var button = fig.querySelector('.play-overlay');
+    if (!video || !button) return;
+    var phone = window.matchMedia('(max-width: 900px), (pointer: coarse)');
+    var upright = window.matchMedia('(orientation: portrait)');
+    var wentFullscreen = false;
+    video.controls = false;
+    button.hidden = false;
+
+    button.addEventListener('click', function () {
+      button.hidden = true;
+      video.controls = true;
+      var vertical = phone.matches && upright.matches && video.dataset.verticalSrc;
+      if (vertical) video.src = video.dataset.verticalSrc;
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+      if (!phone.matches) return;
+      if (video.requestFullscreen) {
+        video.requestFullscreen().then(function () {
+          wentFullscreen = true;
+          if (!vertical && screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(function () {});
+        }).catch(function () {});
+      } else if (video.webkitEnterFullscreen) {
+        try { video.webkitEnterFullscreen(); } catch (e) {}
+      }
+    });
+
+    document.addEventListener('fullscreenchange', function () {
+      if (document.fullscreenElement || !wentFullscreen) return;
+      wentFullscreen = false;
+      if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
+    });
+    video.addEventListener('ended', function () {
+      if (document.fullscreenElement === video) document.exitFullscreen().catch(function () {});
+    });
+  });
+
   // No-JS round trip lands back here with ?subscribed=1 or ?subscribed=0.
   var status = new URLSearchParams(location.search).get('subscribed');
   if (status !== null) {

@@ -17,9 +17,11 @@ no dependencies. `wrangler.toml` holds the Pages config, including the KV bindin
 (only `index.html` was changed, to add metadata and a back link). It stays hosted so the
 archive link works; it is not being developed.
 
-`public/assets/video/paper86-trailer.mp4` is a copy of `marketing/paper86-trailer.mp4` from
-the Paper 86 repo, and `paper86-hero.webp` / `paper86-poster.webp` are frames from it.
-Copy it over again when the trailer is re-rendered.
+`public/assets/video/paper86-trailer.mp4` and `paper86-trailer-vertical.mp4` are copies of the
+two cuts in the Paper 86 repo's `marketing/` folder. Desktop plays the widescreen cut; a phone
+held upright plays the vertical cut fullscreen. `paper86-poster.webp` is a frame from the
+widescreen cut. When the trailer is re-rendered, copy both files over and bump the `?v=` on
+their URLs in `index.html`, since video is cached for a day.
 
 Images in `public/assets/img/` are WebP exports of each game's own art or gameplay captures.
 

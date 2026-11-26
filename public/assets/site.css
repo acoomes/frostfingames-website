@@ -224,12 +224,43 @@ b { font-weight: 700; }
   border: 2px solid var(--ink-red); outline: 1px solid var(--ink-red); outline-offset: -8px;
   box-shadow: 10px 12px 0 rgba(42, 36, 28, .18); transform: rotate(1.2deg);
 }
-.sheet video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--kraft); border: 1px solid var(--rule); }
+.video-wrap { position: relative; border: 1px solid var(--rule); background: var(--kraft); }
+.video-wrap video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.play-overlay {
+  position: absolute; inset: 0; width: 100%; border: 0; padding: 0; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  background: linear-gradient(180deg, rgba(42, 36, 28, 0) 35%, rgba(42, 36, 28, .45));
+  color: var(--sheet);
+}
+.play-overlay[hidden] { display: none; }
+.play-icon {
+  width: clamp(64px, 9vw, 84px); aspect-ratio: 1; border-radius: 50%;
+  background: var(--ink-red); box-shadow: 5px 5px 0 var(--ink);
+  display: grid; place-items: center; transition: transform .15s ease;
+}
+.play-icon::before {
+  content: ""; margin-left: 12%; width: 0; height: 0;
+  border-style: solid; border-width: 13px 0 13px 21px;
+  border-color: transparent transparent transparent var(--sheet);
+}
+.play-label {
+  font: 700 .82rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+  background: var(--ink); padding: 8px 12px; border-radius: 4px;
+}
+.play-label small { font-size: inherit; opacity: .7; margin-left: 6px; }
+.play-overlay:hover .play-icon, .play-overlay:focus-visible .play-icon { transform: scale(1.06); }
+.play-overlay:focus-visible { outline: 3px solid var(--sun); outline-offset: -3px; }
 .sheet figcaption { font: italic .9rem/1.4 var(--serif); color: var(--graphite); padding: 10px 4px 2px; }
 @media (max-width: 900px) {
   .paper-grid { grid-template-columns: 1fr; }
   .paper-art { order: -1; }
-  .sheet { transform: none; }
+  /* On phones the trailer runs edge to edge: no frame, padding or tilt eating its width. */
+  .sheet {
+    transform: none; margin: 0 calc(-1 * var(--gutter)); padding: 0;
+    border: 0; outline: 0; box-shadow: none; background: transparent;
+  }
+  .video-wrap { border: 0; border-block: 2px solid var(--ink-red); }
+  .sheet figcaption { padding: 10px var(--gutter) 0; font-size: .85rem; }
 }
 
 /* ---------- Cookiss ---------- */
